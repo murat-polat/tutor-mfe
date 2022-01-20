@@ -10,36 +10,21 @@ templates = os.path.join(HERE, "templates")
 config = {
     "defaults": {
         "VERSION": __version__,
-        "DOCKER_IMAGE": "{{ DOCKER_REGISTRY }}overhangio/openedx-mfe:{{ MFE_VERSION }}",
+        "DOCKER_IMAGE": "{{ DOCKER_REGISTRY }}muratp/mfe",
         "HOST": "apps.{{ LMS_HOST }}",
         "COMMON_VERSION": "{{ OPENEDX_COMMON_VERSION }}",
-        "ACCOUNT_MFE_APP": {
-            "name": "account",
-            "repository": "https://github.com/edx/frontend-app-account",
-            "port": 1997,
+        "AUTHN_MFE_APP": {
+            "name": "authn",
+            "repository": "https://github.com/opendx/frontend-app-authn",
+            "port": 1999,
             "env": {
                 "production": {
                     "COACHING_ENABLED": "",
                     "ENABLE_DEMOGRAPHICS_COLLECTION": "",
-                },
-            },
-        },
-        "GRADEBOOK_MFE_APP": {
-            "name": "gradebook",
-            "repository": "https://github.com/edx/frontend-app-gradebook",
-            "port": 1994,
-        },
-        "LEARNING_MFE_APP": {
-            "name": "learning",
-            "repository": "https://github.com/edx/frontend-app-learning",
-            "port": 2000,
-        },
-        "PROFILE_MFE_APP": {
-            "name": "profile",
-            "repository": "https://github.com/edx/frontend-app-profile",
-            "port": 1995,
-        },
-    },
+                }
+            }
+        }
+    }
 }
 
 hooks = {
